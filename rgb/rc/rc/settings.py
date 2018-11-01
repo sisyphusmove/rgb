@@ -58,7 +58,7 @@ ROOT_URLCONF = 'rc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')], # template 경로 지정, 어플리케이션 하위에 생성
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,6 +111,10 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
+# LANGUAGE_CODE = 'kr-ko'
+#
+# TIME_ZONE = 'Asia-Seoul'
+
 USE_I18N = True
 
 USE_L10N = True
@@ -121,4 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/' # static 파일 경로 지정
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+

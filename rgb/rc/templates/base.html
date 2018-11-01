@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<title>{% block title %}Django Web Programming{% endblock %}</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static 'css/base.css' %}{% endblock %}" />
+<link rel="stylesheet" type="text/css" href="{% block extrastyle %}{% endblock %}" />
+<link href='{% static "lib/bootstrap.min.css" %}' rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}?ver=55">
+
+</head>
+
+<body>
+
+<div id="header" class="header header-hide">
+    <div class="container">
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+              <li class="menu-has-children">소개</a>
+                <ul>
+                  <li><a href="#">RGB란?</a></li>
+                  <li><a href="#">이용안내</a></li>
+                </ul>
+              </li>
+             <li class="menu-has-children"><a href="">오시는 길</a>
+                <ul>
+                  <li><a href="#">포항에서</a></li>
+                  <li><a href="#">후포에서</a></li>
+                  <li><a href="#">묵호에서</a></li>
+                  <li><a href="#">강릉에서</a></li>
+                  <li><a href="#">배&시간 요금</a></li>
+                  <li><a href="#">독도로</a></li>
+                </ul>
+              </li>
+              <li><a href="#features">정보마당</a></li>
+              <li><a href="#screenshots">커뮤니티</a></li>
+              <li><a href="#team">가맹점정보</a></li>
+              <li><a href="#pricing">회원가입</a></li>
+            </ul>
+        </nav>
+    </div>
+    {% if user.is_active %}
+        <h4 class="welcome">Welcome, <strong>RGB</strong> /
+            <a href="#">Change Password</a> /
+            <a href="#">Logout</a>
+        </h4>
+    {% else %}
+        <h4 class="welcome">
+            <a class="btn btn-primary btn-sm" href="">로그인</a> /
+            <a class="btn btn-primary btn-sm" href="">회원가입</a> /
+        </h4>
+    {% endif %}
+</div>
+{% block content %}{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+        &copy; shkim 2016
+    </div>
+{% endblock %}
+
+</body>
+</html>

@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from rc.views import HomeView
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', HomeView.as_view(), name="index"),
+    # path('store/', StoreLV.as_view(), name="store"),
+    # path('board/', BoardLV.as_view(), name="board"),
+    # path('info/', InfoLV.as_view(), name="info"),
+    # path('member/', MemberLV.as_view(), name="member"),
 ]
